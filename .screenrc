@@ -1,0 +1,36 @@
+# Good tips:
+# http://gentoo-wiki.com/TIP_Using_screen
+# http://xtermin.us/code/screenconfig/
+
+defscrollback 100000
+#scrollback 100000
+#caption always "%{Kb} | %{wb}%?%-Lw%{wb}%50>%{wb}%n %t%+Lw%<%{- wb}%{Kb} |%<"
+
+#caption always "%{wb}%H|%1`|%{-u} %-Lw%{+b by}%n%f %t%{-}%+Lw %=|%D %M %d %c%-0<" 
+
+backtick 1 10000000000 0 echo -n $SCREEN_NAME
+caption always "%{wb}%H|%1`|%{-u} %-Lw%{+b by}%n%f %t%{-}%+Lw %=|%c%-0<" 
+
+sorendition	mK # magenta on black
+#escape 		^pp # hack for using this with emacs
+autodetach 	on
+crlf 		off
+hardcopy_append	on
+vbell		off
+startup_message	off
+#activity	"%C -> %n%f %t activity!"
+pow_detach_msg	"Good day."
+vbell_msg	" *ding* "
+bind X 		lockscreen
+termcapinfo xterm-color ti@:te@
+silencewait 15
+shell -$SHELL			# I'll take my default shell.		
+defmonitor on			# turn monitoring on                    
+
+#bindkey -k F1 select 0
+#bindkey -k F2 select 1
+#bindkey -k F3 select 2
+#bindkey -k F4 select 3
+#bindkey -k F5 select 4
+#bindkey -k F6 select 5
+#bindkey -k F7 select 6

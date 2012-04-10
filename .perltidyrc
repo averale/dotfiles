@@ -1,0 +1,16 @@
+# now we use default value = 2
+#--continuation-indentation=4
+
+--indent-columns=4
+--maximum-line-length=78
+
+# old: default value (1)
+--paren-tightness=2
+
+# now we use default value = 1
+#--square-bracket-tightness=2
+
+--block-brace-tightness=2
+--nooutdent-long-lines
+--nospace-for-semicolon
+--maximum-fields-per-table=1
