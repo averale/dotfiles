@@ -45,6 +45,9 @@ w
 # is there are my screen sessions?
 screen -ls
 
+# is there are my tmux sessions?
+tmux list-sessions
+
 # Setup ssh-agent if ssh forwarding isn't enabled.
 KEYCHAIN=""
 SSH_AUTH_SOCK_PATH=`env | grep SSH_AUTH_SOCK`
