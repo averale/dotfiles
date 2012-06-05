@@ -18,15 +18,8 @@ if [ -d ~/scripts ] ; then
     PATH="${HOME}/scripts:${PATH}"
 fi
 
-# setup Fink env
-if [ -e /sw/bin/init.sh ] ; then
-    . /sw/bin/init.sh
-	for np in '/sw/local/bin' '/sw/local/sbin'; do
-		if [ -d $np ]; then
-			PATH="${np}:${PATH}"
-		fi
-	done;
-fi
+# NOTICE: By default, OS X 10.6 uses /usr/libexec/path_helper to add the
+# following paths listed in the file /etc/paths.
 
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
