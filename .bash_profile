@@ -71,3 +71,5 @@ if [ -z "$SSH_AUTH_SOCK_PATH" ]; then
 else
 	echo "SSH_AUTH_SOCK already exists, possibly ssh agent forwarding enabled!"
 fi;
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
