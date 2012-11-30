@@ -26,12 +26,6 @@ if [ -d ~/bin ] ; then
     PATH="${HOME}/bin:${PATH}"
 fi
 
-# set PATH to dir with magicwrap's symlinks
-if [ `hostname` == 'wasabi' ] ; then
-    PATH="/sw/local/ffmpeg/bin:/usr/local/magicwrap/bin/:${PATH}"
-fi
-
-
 # who's logged in the box?
 w
 
@@ -72,4 +66,5 @@ else
 	echo "SSH_AUTH_SOCK already exists, possibly ssh agent forwarding enabled!"
 fi;
 
+# Ruby Version Manager (RVM)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
