@@ -1,5 +1,0 @@
-communiware :ext:cvs.ice.ru:/cvs ssh
-cmw :ext:cvs.ice.ru:/cvs ssh
-promo :ext:hog.promo.ru:/var/cvs/promo ssh
-abstract :ext:hog.promo.ru:/home/abstract/var/cvs ssh
-zoo :ext:cvs.pvk.org.ru:/var/lib/cvs_zoo ssh
