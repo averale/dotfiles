@@ -90,8 +90,6 @@ fi
 if [ `uname` == "Linux" ]; then
     alias pps='ps -u "$USER" -o user,pid,ppid,pcpu,pmem,args'
     alias ls='ls --color=auto '
-	alias cmw-books="cd ~/repos/cmw-books"
-	alias cmw-specs="cd ~/repos/cmw-books/specs"
 fi;
 
 if [ `uname` == "FreeBSD" -o `uname` == "Darwin" ]; then
