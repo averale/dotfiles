@@ -60,7 +60,6 @@ unset color_prompt force_color_prompt
 case "$TERM" in
 xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-	#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/#$HOME/~}\007"'
     ;;
 *)
     ;;
@@ -123,5 +122,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# iTerm2: advanced features : http://www.worldgoneweb.com/2011/iterm2-advanced-features/
+growl() { echo -e $'\e]9;'${1}'\007' ; return  ; }
