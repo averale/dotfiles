@@ -1,18 +1,19 @@
 # ~/.bash_profile: executed by bash(2) for login shells.
 # see /usr/share/doc/bash/examples/startup-files for examples
 
-#echo "PATH=$PATH"
-umask 022
-
-# set variable identifying the chroot you work in
-#if [ -f /etc/debian_chroot ]; then
-#  debian_chroot=$(cat /etc/debian_chroot)
-#fi
+# ~/.bash_profile are sourced by the login process. A shell that you run in a
+# terminal window is run in a different process which is a descendant of the
+# login process. Certain settings made by the login process are exported to
+# child processes, but aliases and function definitions are not. Aliases and
+# functions should be defined instead in your shell's rc file, ~/.bashrc in
+# this case. That file is sourced by every interactive bash process.
 
 # include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
+
+umask 022
 
 if [ -d ~/scripts ] ; then
     PATH="${HOME}/scripts:${PATH}"
