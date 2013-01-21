@@ -1,3 +1,4 @@
---type=text
---type=yaml
---pager=less -r
+# Due to changes in ack 2.0 this config options are obsolete. Commented and scheduled for remove.
+#--type=text
+#--type=yaml
+#--pager=less -r
