@@ -1,6 +1,8 @@
 #!/bin/bash
 #^-it's just for auto-enable syntax highligth for bash.
 
+alias tmux="TERM=screen-256color-bce tmux"
+
 alias scr="screen $SCREEN_OPTIONS -D -RR "
 alias scrr="screen $SCREEN_OPTIONS -r "
 alias scrls="screen $SCREEN_OPTIONS -ls "

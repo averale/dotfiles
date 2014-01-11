@@ -96,6 +96,10 @@ if [ `uname` == "FreeBSD" -o `uname` == "Darwin" ]; then
     alias ls='ls -G '
 fi;
 
+if [ `uname` == "Darwin" ]; then
+	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+fi;
+
 export GREP_COLOR='1;32'
 export GREP_OPTIONS='--color=auto'
 
