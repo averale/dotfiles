@@ -1,0 +1,54 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+set visualbell
+
+set incsearch       " do incremental searching
+set ignorecase
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+" http://stackoverflow.com/questions/23407307/what-something-fishy-is-going-on-in-vim-with-relative-number
+set relativenumber 
+set number
+
+" TAB setup — http://vim.wikia.com/wiki/Indent_with_tabs,_align_with_spaces
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+
+if has("syntax")
+  syntax on     " Default to no syntax highlightning 
+endif
+
+" Filetypes
+" ==========
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+    " Enable file type detection.
+    " Use the default filetype settings, so that mail gets 'tw' set to 72,
+    " 'cindent' is on in C files, etc.
+    " Also load indent files, to automatically do language-dependent indenting.
+    filetype plugin indent on
+    autocmd BufRead,BufNewFile *.t   set filetype=perl
+    autocmd BufRead,BufNewFile *.PL  set filetype=perl
+    "autocmd BufRead,BufNewFile *.xml set tabstop=2 | set shiftwidth=2 |set noexpandtab
+    "autocmd BufRead,BufNewFile nginx.conf* set filetype=nginx
+    "autocmd BufRead,BufNewFile */nginx/**.conf set filetype=nginx
+    autocmd BufRead,BufNewFile *.prd set filetype=parse_recdescent
+
+    autocmd BufRead,BufNewFile nginx.prime set filetype=bind
+
+    """ Programming
+    autocmd FileType perl,sh                        setlocal formatoptions-=t
+else
+    set autoindent      " always set autoindenting on
+endif " has("autocmd")
+
