@@ -5,28 +5,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# join multi-line commands
-shopt -s cmdhist
-
-# append history
-shopt -s histappend
-# via https://habr.com/post/31326/
-PROMPT_COMMAND='history -a && echo -n H!'
-
-# don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
-# ... and ignore same sucessive entries.
-export HISTCONTROL=ignoreboth
-
-export HISTIGNORE="&:ls:[bf]g:exit"
-export HISTSIZE=15000
-export HISTTIMEFORMAT="%h %d %H:%M:%S "
-
-HISTHOST=`hostname`
-echo HISTHOST=$HISTHOST
-HISTFILE="$HISTFILE-$HISTHOST"
-echo HISTFILE=$HISTFILE
-
 export EDITOR=`which vim`
 
 # check the window size after each command and, if necessary,
@@ -113,21 +91,14 @@ fi;
 #export GREP_COLOR='1;32'
 #export GREP_OPTIONS='--color=auto'
 
-SCREEN_OPTIONS=''
-if [ "$LANG" == "ru_RU.UTF-8" ]; then
-	SCREEN_OPTIONS='-U'
-fi;
+#SCREEN_OPTIONS=''
+#if [ "$LANG" == "ru_RU.UTF-8" ]; then
+#	SCREEN_OPTIONS='-U'
+#fi;
 
 export LANG=ru_RU.UTF-8
-if [ `hostname` == "walrus" ]; then
-	if [ "$CMWID" != "cmw2" ]; then
-		export LANG=ru_RU.UTF-8
-	else
-		export LANG=ru_RU.KOI8-R
-		echo "WARNING! CMWID=$CMWID -> LANG=$LANG"
-	fi
-fi
-
+export LC_TIME=C
+export LC_MESSAGES=C
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -135,6 +106,27 @@ fi
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+# join multi-line commands
+shopt -s cmdhist
+
+# append history
+shopt -s histappend
+# via https://habr.com/post/31326/
+#PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+# ... and ignore same sucessive entries.
+export HISTCONTROL=ignoreboth
+
+export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTSIZE=15000
+export HISTTIMEFORMAT="%h %d %H:%M:%S "
+
+HISTHOST=`hostname`
+HISTFILE="$HISTFILE-$HISTHOST"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
