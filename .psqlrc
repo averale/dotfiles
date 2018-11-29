@@ -3,6 +3,7 @@
 \set HISTSIZE 5000
 \set AUTOCOMMIT off
 \set VERBOSITY terse
-\set PROMPT1 \set PROMPT1 '%[%033[33m%]%n%[%033[0m%]@%[%033[32m%]%~%[%033[0m%]%R%# '
-\set PROMPT2 '%[%033[32m%]%~%[%033[0m%]%R%# '
-\x
+--\set PROMPT1 \set PROMPT1 '%[%033[33m%]%n%[%033[0m%]@%[%033[32m%]%~%[%033[0m%]%R%# '
+--\set PROMPT2 '%[%033[32m%]%~%[%033[0m%]%R%# '
+--\x
+\timing

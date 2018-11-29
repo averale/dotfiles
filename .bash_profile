@@ -31,10 +31,10 @@ fi
 w
 
 # is there are my screen sessions?
-screen -ls
+#screen -ls
 
 # is there are my tmux sessions?
-tmux list-sessions
+byobu list-sessions
 
 # Setup ssh-agent if ssh forwarding isn't enabled.
 KEYCHAIN=""
@@ -67,5 +67,8 @@ else
 	echo "SSH_AUTH_SOCK already exists, possibly ssh agent forwarding enabled!"
 fi;
 
-# Ruby Version Manager (RVM)
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+## Ruby Version Manager (RVM)
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+## Perlbrew — http://perlbrew.pl/
+#source ~/perl5/perlbrew/etc/bashrc

@@ -5,13 +5,27 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# join multi-line commands
+shopt -s cmdhist
+
+# append history
+shopt -s histappend
+# via https://habr.com/post/31326/
+PROMPT_COMMAND='history -a && echo -n H!'
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 
 export HISTIGNORE="&:ls:[bf]g:exit"
-export HISTSIZE=5000
+export HISTSIZE=15000
+export HISTTIMEFORMAT="%h %d %H:%M:%S "
+
+HISTHOST=`hostname`
+echo HISTHOST=$HISTHOST
+HISTFILE="$HISTFILE-$HISTHOST"
+echo HISTFILE=$HISTFILE
 
 export EDITOR=`which vim`
 
@@ -96,12 +110,8 @@ if [ `uname` == "FreeBSD" -o `uname` == "Darwin" ]; then
     alias ls='ls -G '
 fi;
 
-if [ `uname` == "Darwin" ]; then
-	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-fi;
-
-export GREP_COLOR='1;32'
-export GREP_OPTIONS='--color=auto'
+#export GREP_COLOR='1;32'
+#export GREP_OPTIONS='--color=auto'
 
 SCREEN_OPTIONS=''
 if [ "$LANG" == "ru_RU.UTF-8" ]; then
