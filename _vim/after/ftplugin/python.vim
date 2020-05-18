@@ -1,12 +1,9 @@
 " Abreviations
 "=============
-ab pperl #!/usr/bin/env perl<CR><CR>use strict;<CR>use warnings;<CR>use 5.024; # strict enabled by default<CR>
-
-iab dbg use Data::Dumper qw( Dumper );<CR>warn Dumper [];<ESC>hi
-iab ddp use DDP; p<ESC>A
 
 " save and run current script
-nmap ZR :w<CR>:!perl ./%<CR>
+nmap ZR :w<CR>:!python3 ./%<CR>
+nmap ZT :w<CR>:!time python3 ./%<CR>
 nmap ZP :w<CR>:!prove ./%<CR>
 
 " Editor settings
@@ -30,19 +27,20 @@ set shiftround
 " We need numbering in program sources
 set nu
 
-" Tide up Perl code using Perltidy
+" Tide up Python code using ...
 " map <silent> <F5> :!perltidy -i=4 -et=4 -l=78 -pt=2 -sbt=2 -bbt=2<CR>
 " Make sure that you ~/.perltidyrc is exists and valid!
-map <silent> <F5> :!perltidy --check-syntax<CR>
+"map <silent> <F5> :!perltidy --check-syntax<CR>
 
 filetype plugin indent on
 " External program to use for "=" command
 " now select the text you want to format, then hit =. You can reformat the
 " entire file with 1G=G
-autocmd FileType perl setlocal equalprg=perltidy
+"autocmd FileType perl setlocal equalprg=perltidy\ -pbp\ -st
+autocmd FileType python setlocal equalprg=yapf
 
 " Format file with perltidy...
-nmap ;p 1G!Gperltidy<CR>
+nmap ;p 1G!Gyapf<CR>
 
 " Show what changes perltidy would make...
 " Perltidy_diff function itself are moved to .vimrc
