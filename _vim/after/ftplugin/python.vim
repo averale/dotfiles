@@ -4,7 +4,7 @@
 " save and run current script
 nmap ZR :w<CR>:!python3 ./%<CR>
 nmap ZT :w<CR>:!time python3 ./%<CR>
-nmap ZP :w<CR>:!prove ./%<CR>
+nmap ZP :w<CR>:!python3 -m unittest discover -s t/<CR>
 
 " Editor settings
 "================
