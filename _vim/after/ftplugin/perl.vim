@@ -1,13 +1,13 @@
 " Abreviations
 "=============
-ab pperl #!/usr/bin/env perl<CR><CR>use strict;<CR>use warnings;<CR>use 5.024; # strict enabled by default<CR>
+ab pperl #!/usr/bin/env perl<CR><CR>use warnings;<CR>use 5.024; # strict enabled by default<CR>
 
 iab dbg use Data::Dumper qw( Dumper );<CR>warn Dumper [];<ESC>hi
 iab ddp use DDP; p<ESC>A
 
 " save and run current script
 nmap ZR :w<CR>:!perl ./%<CR>
-nmap ZP :w<CR>:!prove ./%<CR>
+nmap ZP :w<CR>:!prove<CR>
 
 " Editor settings
 "================
