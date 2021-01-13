@@ -18,6 +18,11 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ltr='ls -ltr'
 
+# youtube-dl
+alias ydl4="youtube-dl --embed-thumbnail -f 'medium[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+alias ydlw="youtube-dl --embed-thumbnail -f worst"
+alias ydl3="youtube-dl --extract-audio --audio-format=mp3 --embed-thumbnail -o '%(title)s.%(ext)s'"
+
 # Env and aliases for work with Communiware instance.
 if [ "$CMWID" ]; then
 	# Add CMW_ID to env.
